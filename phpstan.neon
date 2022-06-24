@@ -1,0 +1,5 @@
+parameters:
+  level: 6
+
+includes:
+  - utils/phpstan/baselines.neon

@@ -1,0 +1,24 @@
+name: PHPStan
+
+on:
+  push: null
+
+env:
+  # see https://github.com/composer/composer/issues/9368#issuecomment-718112361
+  COMPOSER_ROOT_VERSION: "dev-main"
+
+jobs:
+  phpstan:
+    name: Test baseline
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.1
+          coverage: none
+      - uses: "ramsey/composer-install@v1"
+      - run: "vendor/bin/phpstan analyse -cutils/phpstan/analysis/packages.neon --generate-baseline=packages/One/phpstan-baseline.neon packages/One/"
+      - run: "composer phpstan:packages"

@@ -1,0 +1,6 @@
+includes:
+  - ../../../phpstan.local.neon
+
+parameters:
+  paths:
+    - ../../../packages

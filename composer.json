@@ -1,0 +1,22 @@
+{
+  "name": "phpstan/issue-6650-reproducer",
+  "description": "Reproducer for https://github.com/phpstan/phpstan/issues/6650",
+  "authors": [
+    {
+      "name": "Grzegorz Korba",
+      "email": "grzegorz.korba@codito.pl"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "phpstan/phpstan": "^1.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpStan\\Reproducer\\Issue6650\\One\\": "packages/One/src/"
+    }
+  },
+  "scripts": {
+    "phpstan:packages": "phpstan --ansi analyse --memory-limit=1G -cutils/phpstan/analysis/packages.neon"
+  }
+}
